@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8"> 
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/flowplugin.css"/>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	</head>
+	<!--
+        	作者：sunlie2009@163.com
+        	时间：2018-01-25
+        	描述：display:table-cell  解决内容y轴居中问题  不需要计算，直接css解决
+        -->
+	<body>
+		
+		<div style="height:270px;"></div>
+		
+		<div class="flowSwrap">
+			<!--流程线-->
+			<div class="flow-line"></div>
+			<!--流程区域 start-->
+			<div class="flowCell">
+				<div class="cell-left fc-orange">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center  fc-orange">
+					<img id="startImg" src="img/f1.png"/>
+				</div>
+				<div class="cell-right  fc-orange">
+					<p class="t1_start">订单已竣工</p>
+					<p class="t2">感谢</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left  fc-grey">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center  fc-grey">
+					<img src="img/f2.png"/>
+				</div>
+				<div class="cell-right  fc-grey">
+					<p class="t1">施工小哥已接单，请等待</p>
+					<p class="t2">小哥电话：18612123233</p>
+					<p class="t2">预约上门时间：2018-01-02 10:00</p>
+					<p class="t2">预约上门时间：2018-01-02 10:00</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left  fc-grey">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center  fc-grey">
+					<img src="img/f2.png"/>
+				</div>
+				<div class="cell-right  fc-grey">
+					<p class="t1">施工小哥已接单，请等待</p>
+					<p class="t2">小哥电话：18612123233</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left fc-grey">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center  fc-grey">
+					<img id="endImg" src="img/f2.png"/>
+				</div>
+				<div class="cell-right  fc-grey">
+					<p class="t1">订单已提交</p>
+				</div>
+			</div>
+			<!--流程区域 end-->
+		</div>
+		
+		<script>
+		
+			//获取开始和结束节点的位置，计算出线的位置
+			/*function getImgPosition(){
+				//获取相对(父元素)位置 
+				//开始节点 
+				var x1 = $('#startImg').position().left;
+				var y1 = $('#startImg').position().top;
+				var w1 = $('#startImg').width();
+				//结束节点
+				var x2 = $('#endImg').position().left;
+				var y2 = $('#endImg').position().top;
+				var h2 = $('#endImg').height();
+				//线的宽度
+				var wfl = $(".flow-line").width()
+				
+				console.log(x1,y1,x2,y2);
+				//流程线的位置计算
+				var imgLeft = x1 + w1/2 - wfl/2;
+				var imgTop = y1;
+				var imgHeight = y2 - y1 + h2/2;
+				
+				$(".flow-line").css({
+					left:imgLeft,
+					top:imgTop,
+					height:imgHeight
+				});
+			}*/
+			
+			function getImgPosition(){
+				//获取相对(父元素)位置  class="flowSwrap"
+				//开始节点 
+				var x1 = $('#startImg').position().left;
+				var y1 = $('#startImg').position().top;
+				var w1 = $('#startImg').width();// 第一个图片尚未加载成功时，取值为0，所以需要设置第一个img的height,width
+				var h1 = $('#startImg').height();
+				//结束节点
+				var x2 = $('#endImg').position().left;
+				var y2 = $('#endImg').position().top;
+				
+				//线的宽度
+				var wfl = $(".flow-line").width()
+				
+				console.log(x1,y1,x2,y2,w1);
+				
+				//流程线的位置计算
+				var imgLeft = x1 + w1/2 - wfl/2;
+				var imgTop = y1 + h1/2;
+				var imgHeight = y2 - y1 - h1/2;
+				
+				$(".flow-line").css({
+					left:imgLeft,
+					top:imgTop,
+					height:imgHeight
+				});
+			}
+			
+			getImgPosition();
+		</script>
+	</body>
+</html>

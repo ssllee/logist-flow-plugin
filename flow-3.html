@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8"> 
+		<title></title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+		<!--
+        	作者：sunlie2009@163.com
+        	时间：2018-01-25
+        	描述：line-height 解决内容y轴居中问题 但是需要计算
+        -->
+		<style>
+			*{padding:0;margin:0;}
+
+			body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+				padding:0px;margin:0px;
+				border:none;list-style:none;
+				font-weight:normal;
+				font-family:"微软雅黑";
+			}
+			
+			.flowSwrap {
+				margin: 0 auto;
+				position: relative;
+				width:720px;
+				background-color: rgba(0,0,0,.3);
+			}
+			/*204 516 200 20 500*/
+			
+			.line-height-30 {
+				line-height: 30px;
+			}
+			
+			.line-height-60 {
+				line-height: 60px;
+			}
+			
+			.line-height-6010 {
+				line-height: 70px;
+			}
+			
+			.line-height-90 {
+				line-height: 90px;
+			}
+			.line-height-9010 {
+				line-height: 100px;
+			}
+			
+			.flowCell {
+				padding-top: 10px;
+				overflow: hidden;
+			}
+			.cell-left {
+			    float: left;
+			    width: 190px;
+			    margin-right: 10px;
+			    text-align: right;
+			    /*line-height: 30px;*/ /* 30 */
+			}
+			.cell-center {
+			    float: left;
+			    width: 20px;
+			    /*line-height: 70px;*/ /* 30*2+10 */
+			}
+			.cell-right {
+			    float: left;
+			    margin-left: 10px;
+			    text-align: left;
+			    font-size: 20px;
+			    /*line-height: 60px;*/ /* 30*2 */
+			}
+			
+			.cell-left .t1 {
+				font-size: 20px;
+			}
+			.cell-left .t2 {
+				font-size: 16px;
+			}
+			
+			.cell-right .t1 {
+				font-size: 20px;
+			}
+			.cell-right .t2 {
+				font-size: 16px;
+			}
+			
+			
+			.flow-line {
+				position: absolute;
+				height: 300px;
+				width: 2px;
+				background-color: red;
+				/*top:10px;
+				left:210px;*/
+				z-index: -1;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div style="height:200px;"></div>
+		
+		
+		<div class="flowSwrap">
+			<!--流程线-->
+			<div class="flow-line"></div>
+			<!--流程区域-->
+			<div class="flowCell">
+				<div class="cell-left line-height-30">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center line-height-6010">
+					<img id="startImg" src="img/f1.png"/>
+				</div>
+				<div class="cell-right line-height-60">
+					<p class="t1">订单已竣工</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left line-height-30">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center line-height-9010">
+					<img src="img/f2.png"/>
+				</div>
+				<div class="cell-right line-height-30">
+					<p class="t1">施工小哥已接单，请等待</p>
+					<p class="t2">小哥电话：18612123233</p>
+					<p class="t2">预约上门时间：2018-01-02 10:00</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left line-height-30">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center line-height-6010">
+					<img src="img/f2.png"/>
+				</div>
+				<div class="cell-right line-height-30">
+					<p class="t1">施工小哥已接单，请等待</p>
+					<p class="t2">小哥电话：18612123233</p>
+				</div>
+			</div>
+			<div class="flowCell">
+				<div class="cell-left line-height-30">
+					<p class="t1">20:00</p>
+					<p class="t2">2018-01-01</p>
+				</div>
+				<div class="cell-center line-height-6010">
+					<img id="endImg" src="img/f2.png"/>
+				</div>
+				<div class="cell-right line-height-60">
+					<p class="t1">订单已提交</p>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		
+			//获取开始和结束节点的位置，计算出线的位置
+			function getImgPosition(){
+				//获取相对(父元素)位置 
+				//开始节点 
+				var x1 = $('#startImg').position().left;
+				var y1 = $('#startImg').position().top;
+				var w1 = $('#startImg').width();
+				//结束节点
+				var x2 = $('#endImg').position().left;
+				var y2 = $('#endImg').position().top;
+				var h2 = $('#endImg').height();
+				
+				console.log(x1,y1,x2,y2);
+				//流程线的位置计算
+				var imgLeft = x1 + w1/2 - 1;
+				var imgTop = y1;
+				var imgHeight = y2 - y1 + h2/2;
+				$(".flow-line").css({
+					left:imgLeft,
+					top:imgTop,
+					height:imgHeight
+				});
+			}
+			getImgPosition();
+		</script>
+		
+	</body>
+</html>

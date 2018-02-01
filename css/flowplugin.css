@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+
+/*-------------
+ * 
+ * 原版本
+ * ------------*/
+
+*{padding:0;margin:0;}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;margin:0px;
+	border:none;list-style:none;
+	font-weight:normal;
+	/*font-family:'Verdana', 'Microsoft YaHei', sans-serif;*/
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+body{
+	background-color: #f6f6f6;
+}
+/*字体颜色*/
+.fc-orange {color:#fd6b00;}
+.fc-grey {color:#9d9d9d;}
+
+
+/* flow start */
+.flowSwrap {
+	position: relative;
+	margin: 0 auto;
+	width:720px;
+	/*background-color: rgba(0,0,0,.3);*/
+}
+
+.flowCell {
+	padding:25px 0;
+	overflow: hidden;
+}
+.cell-left {
+    width: 190px;
+    padding-right: 28px;
+    text-align: right;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: goldenrod;*/
+}
+.cell-right {
+    padding-left: 28px;
+    text-align: left;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color:green;*/
+}
+.cell-center {
+    height:100px;
+    width: 20px;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: azure;*/
+}
+.cell-left .t1 {
+	font-size: 24px;
+}
+.cell-left .t2 {
+	font-size: 18px;
+}
+
+.cell-right .t1_start {
+	font-size: 32px;
+}
+.cell-right .t1 {
+	font-size: 28px;
+}
+.cell-right .t2 {
+	font-size: 24px;
+}
+
+.flow-line {
+	position: absolute;
+	height: 10px;
+	width: 3px;
+	background-color: #aaaaaa;
+	/*top:10px;
+	left:210px;*/
+	z-index: -1;
+}
+
+
+.firstImg {
+	height:20px;
+	width:20px;
+}
+
+/*  flow  end */

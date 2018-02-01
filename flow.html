@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8"> 
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/flowplugin.css"/>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/flowplugin.js"></script>
+		
+	</head>
+	<body>
+		<div style="height:270px;background-color:ghostwhite"></div>
+		
+		<!--流程展示区 start-->
+		<div class="flowtest"></div>
+		<!--流程展示区 start-->
+		
+		<script>
+			var testDate = {
+				  "data": [
+				    {
+				      "createDate":"2018-01-01 22:00",
+				      "jobName":"订单已竣工"
+				      ,"jobOther":"感谢"
+				    },
+				    {
+				      "createDate":"2018-01-01 17:00",
+				      "jobName":"施工小哥已接单，请等待",
+				      "jobOther":"小哥电话：18612123233,预约上门时间：2018-01-02 10:00"
+				    },
+				    {
+				      "createDate":"2018-01-01 15:00",
+				      "jobName":"施工小哥已接单，请等待",
+				      "jobOther":"小哥电话：18612123233,预约上门时间：2018-01-02 10:00"
+				    },
+				    {
+				      "createDate":"2018-01-01 15:00",
+				      "jobName":"订单已提交",
+				      "jobOther":""
+				    }
+				  ]
+				};
+				
+			$(function(){
+				var opt = {
+					"jsonDate":testDate,//json数据
+					"imgSrcStart":"img/f1.png",//最新流程节点图片（第一个节点）
+					"imgSrcOther":"img/f2.png",//其它流程节点图片
+					"imgWidth":"20px",//图片宽  设置第一个图片的宽度
+					"imgHeight":"20px"//图片高  设置第一个图片的高度
+				};
+				
+				/*var opt = {
+					"jsonDate":testDate,//json数据
+					"imgSrcStart":"img/f1.png",//最新流程节点图片（第一个节点）
+					"imgSrcOther":"img/f2.png",//其它流程节点图片
+					"imgClass":"firstImg"//设置所有图片的宽高
+				};*/
+				
+				$(".flowtest").flowplugin(opt);
+				
+			});
+		</script>
+	</body>
+</html>
