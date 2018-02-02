@@ -8,4 +8,6 @@
 
 开发前的例子 flow-2.html  flow-3.html
 
+可以直接访问：https://ssllee.github.io/logist-flow-plugin/flow.html
+
 
