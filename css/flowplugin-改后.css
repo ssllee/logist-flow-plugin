@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+
+/*-------------
+ * 
+ * 手机需要换算单位
+ * ------------*/
+
+*{padding:0;margin:0;}
+
+/*字体颜色*/
+.fc-orange {color:#fd6b00;}
+.fc-grey {color:#9d9d9d;}
+
+
+/* flow start */
+.flowSwrap {
+	position: relative;
+	margin: 0 auto;
+	/* width: 36rem; */ /* 720px; */
+	/*background-color: rgba(0,0,0,.3);*/
+}
+
+.flowCell {
+	padding: 1.25rem;/* 25px 0; */
+	overflow: hidden;
+}
+.cell-left {
+    width: 9.5rem; /* 190px; */
+    padding-right: 1.4rem; /* 28px; */
+    text-align: right;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: goldenrod;*/
+}
+.cell-right {
+    padding-left: 1.4rem; /* 28px; */
+    text-align: left;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color:green;*/
+}
+.cell-center {
+    height: 5rem; /* 100px; */
+    width: 1rem; /* 20px; */
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: azure;*/
+}
+.cell-left .t1 {
+	font-size: 1.2rem; /* 24px; */
+}
+.cell-left .t2 {
+	font-size: 0.9rem; /* 18px; */
+}
+
+.cell-right .t1_start {
+	font-size: 1.6rem; /* 32px; */
+}
+.cell-right .t1 {
+	font-size: 1.4rem; /* 28px; */
+}
+.cell-right .t2 {
+	font-size: 1.2rem; /* 24px; */
+}
+
+.flow-line {
+	position: absolute;
+	height: 0.5rem; /* 10px; */
+	width: 0.1rem; /*2px;*/ /* 线宽不需要变 */
+	background-color: #aaaaaa;
+	/*top:10px;
+	left:210px;*/
+	z-index: -1;
+}
+
+.firstImg {
+	height: 1rem;
+	width: 1rem;
+}
+/*  flow  end */
